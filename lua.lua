@@ -70,7 +70,7 @@ local PlayerTab = Tab:CreateButton({
    Name = "Give CO (EXPR)",
    Callback = function()
 local args = {
-    [1] = player
+    [1] = player,
     [2] = 1
 }
 
