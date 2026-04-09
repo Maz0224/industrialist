@@ -1,1 +1,16 @@
+local args = {
+    [1] = {
+        [1] = {
+            [1] = workspace.Plots.Pipes:FindFirstChild("24").ModelData.Valve,
+            [2] = 100
+        },
+        [2] = {
+            [1] = workspace.Plots.Pipes:FindFirstChild("24").ModelData.Overflow,
+            [2] = false
+        }
+    },
+    [2] = 1775777563.9519386
+}
+
+game:GetService("ReplicatedStorage").SharedMachineSettingsRelay:FireServer(unpack(args))
 
