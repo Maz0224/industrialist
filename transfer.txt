@@ -14,3 +14,24 @@ local args = {
 
 game:GetService("ReplicatedStorage").SharedMachineSettingsRelay:FireServer(unpack(args))
 
+
+
+local args = {
+    [1] = workspace.Plots.Pipes:FindFirstChild("7")
+}
+
+game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+
+local args = {
+    [1] = workspace.Plots.Power:FindFirstChild("27")
+}
+
+game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+
+local args = {
+    [1] = workspace.Plots.Extractors:FindFirstChild("25")
+}
+
+game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+
+
