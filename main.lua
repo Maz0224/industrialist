@@ -1232,11 +1232,11 @@ local script = G2L["61"];
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Players = game:GetService("Players")
 	
-	local copied = {}
 	local selecting = false
+	local copied = {}
 	local minPos, maxPos
 	
-	-- get character root safely
+	-- get player root safely
 	local function getRoot()
 		local char = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
 		return char:WaitForChild("HumanoidRootPart")
@@ -1258,20 +1258,33 @@ local script = G2L["61"];
 		return nil
 	end
 	
-	-- selection toggle
+	------------------------------------------------
+	-- TOGGLE SELECTION
+	------------------------------------------------
 	selectBtn.MouseButton1Click:Connect(function()
 		selecting = not selecting
 		copied = {}
+	
+		selectBtn.Text = selecting and "SELECT: ON" or "SELECT: OFF"
+	
+		print("Selection:", selecting)
 	end)
 	
-	-- COPY SYSTEM
+	------------------------------------------------
+	-- COPY
+	------------------------------------------------
 	copyBtn.MouseButton1Click:Connect(function()
+		if not selecting then
+			print("Selection is OFF")
+			return
+		end
+	
 		copied = {}
 	
 		local root = getRoot()
 	
 		local center = root.Position
-		local range = 50 -- adjust selection size if needed
+		local range = 50
 	
 		minPos = center - Vector3.new(range, range, range)
 		maxPos = center + Vector3.new(range, range, range)
@@ -1299,31 +1312,44 @@ local script = G2L["61"];
 			end
 		end
 	
-		print("Copied:", #copied)
+		print("Copied objects:", #copied)
 	end)
 	
-	-- PASTE SYSTEM
+	------------------------------------------------
+	-- PASTE
+	------------------------------------------------
 	pasteBtn.MouseButton1Click:Connect(function()
+		if #copied == 0 then
+			print("Nothing to paste")
+			return
+		end
+	
 		local root = getRoot()
 	
 		for _, data in ipairs(copied) do
 			local offset = data.cframe.Position - minPos
 			local newPos = root.Position + offset
 	
+			local rotationOnly = data.cframe - data.cframe.Position
+	
 			local args = {
 				[1] = data.building,
-				[2] = CFrame.new(newPos) * (data.cframe - data.cframe.Position),
+				[2] = CFrame.new(newPos) * rotationOnly,
 				[4] = true
 			}
 	
-			ReplicatedStorage.PlacementSystem.Place:FireServer(unpack(args))
+			ReplicatedStorage:WaitForChild("PlacementSystem")
+				:WaitForChild("Place")
+				:FireServer(unpack(args))
 		end
 	end)
 	
+	------------------------------------------------
 	-- CLEAR
+	------------------------------------------------
 	clearBtn.MouseButton1Click:Connect(function()
 		copied = {}
-		print("Cleared")
+		print("Cleared clipboard")
 	end)
 end;
 task.spawn(C_61);
