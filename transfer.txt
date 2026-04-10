@@ -35,3 +35,12 @@ local args = {
 game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
 
 
+local args = {
+    [1] = "M",
+    [2] = {
+        ["difficulty"] = 0,
+        ["oreNodes"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.CreateWorld:InvokeServer(unpack(args))
