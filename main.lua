@@ -845,9 +845,9 @@ local script = G2L["48"];
 				2.075000047683716,
 				root.Position.Z
 			) * CFrame.Angles(
-				0,
-				math.rad(math.random(-360, 360)),
-				0
+				math.rad(math.random(-360, 360)), -- X
+				math.rad(math.random(-360, 360)), -- Y
+				math.rad(math.random(-360, 360))  -- Z
 			),
 	
 			[4] = true
