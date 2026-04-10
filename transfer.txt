@@ -44,3 +44,15 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.CreateWorld:InvokeServer(unpack(args))
+
+
+
+
+local args = {
+    [1] = game:GetService("ReplicatedStorage").PlacementSystem.Buildings.Extractors.CoalDrill,
+    [2] = CFrame.new(-516, 2.075000047683716, -20) * CFrame.Angles(-0, 0, -0),
+    [4] = true
+}
+
+game:GetService("ReplicatedStorage").PlacementSystem.Place:FireServer(unpack(args))
+
