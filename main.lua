@@ -1239,16 +1239,17 @@ local script = G2L["61"];
 	local pos1 = nil
 	local pos2 = nil
 	local copied = {}
-	local selected = nil
 	
-	-- CHARACTER ROOT
+	---------------------------------------------------
+	-- ROOT
+	---------------------------------------------------
 	local function getRoot()
 		local char = player.Character or player.CharacterAdded:Wait()
 		return char:WaitForChild("HumanoidRootPart")
 	end
 	
 	---------------------------------------------------
-	-- RAYCAST (mobile + PC fix)
+	-- RAYCAST (mobile + pc)
 	---------------------------------------------------
 	local function getHit(screenPos)
 		local ray = camera:ScreenPointToRay(screenPos.X, screenPos.Y)
@@ -1267,7 +1268,40 @@ local script = G2L["61"];
 	end
 	
 	---------------------------------------------------
-	-- SELECT TOGGLE
+	-- BOX VISUAL
+	---------------------------------------------------
+	local boxPart = Instance.new("Part")
+	boxPart.Anchored = true
+	boxPart.CanCollide = false
+	boxPart.Transparency = 0.6
+	boxPart.Material = Enum.Material.Neon
+	boxPart.Color = Color3.fromRGB(0, 170, 255)
+	boxPart.Parent = workspace
+	
+	local function updateBox()
+		if not pos1 or not pos2 then
+			boxPart.Size = Vector3.new(0,0,0)
+			return
+		end
+	
+		local min = Vector3.new(
+			math.min(pos1.X, pos2.X),
+			math.min(pos1.Y, pos2.Y),
+			math.min(pos1.Z, pos2.Z)
+		)
+	
+		local max = Vector3.new(
+			math.max(pos1.X, pos2.X),
+			math.max(pos1.Y, pos2.Y),
+			math.max(pos1.Z, pos2.Z)
+		)
+	
+		boxPart.Size = max - min
+		boxPart.Position = (min + max) / 2
+	end
+	
+	---------------------------------------------------
+	-- TOGGLE SELECT
 	---------------------------------------------------
 	selectBtn.MouseButton1Click:Connect(function()
 		selecting = not selecting
@@ -1275,10 +1309,11 @@ local script = G2L["61"];
 	
 		pos1 = nil
 		pos2 = nil
+		boxPart.Size = Vector3.new(0,0,0)
 	end)
 	
 	---------------------------------------------------
-	-- MOBILE + PC SELECT FIX
+	-- INPUT (mobile + pc)
 	---------------------------------------------------
 	UserInputService.InputBegan:Connect(function(input, processed)
 		if processed then return end
@@ -1294,31 +1329,23 @@ local script = G2L["61"];
 	
 		if not pos then return end
 	
-		local hitPart = getHit(pos)
+		local hitPart, hitPos = getHit(pos)
 		if not hitPart then return end
 	
-		local model = hitPart:FindFirstAncestorOfClass("Model")
-		if model then
-			selected = model
-			print("Selected:", model.Name)
+		if not pos1 then
+			pos1 = hitPos
+		else
+			pos2 = hitPos
 		end
 	
-		-- BOX POINTS (tap sets corners)
-		if not pos1 then
-			pos1 = getHit(pos)
-		else
-			pos2 = getHit(pos)
-		end
+		updateBox()
 	end)
 	
 	---------------------------------------------------
 	-- COPY BOX
 	---------------------------------------------------
 	copyBtn.MouseButton1Click:Connect(function()
-		if not pos1 or not pos2 then
-			warn("Need 2 points")
-			return
-		end
+		if not pos1 or not pos2 then return end
 	
 		copied = {}
 	
@@ -1362,7 +1389,7 @@ local script = G2L["61"];
 	end)
 	
 	---------------------------------------------------
-	-- PASTE BOX
+	-- PASTE
 	---------------------------------------------------
 	pasteBtn.MouseButton1Click:Connect(function()
 		if #copied == 0 then return end
@@ -1398,9 +1425,9 @@ local script = G2L["61"];
 		pos1 = nil
 		pos2 = nil
 		copied = {}
-		selected = nil
 	
 		selectBtn.Text = "Select: OFF"
+		boxPart.Size = Vector3.new(0,0,0)
 	
 		print("Cleared")
 	end)
