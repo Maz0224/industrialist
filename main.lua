@@ -12,12 +12,14 @@ local G2L = {};
 
 -- StarterGui.GriefGUI
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["DisplayOrder"] = 1;
 G2L["1"]["Name"] = [[GriefGUI]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
 -- StarterGui.GriefGUI.MainFrame
 G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["ZIndex"] = 9999999;
 G2L["2"]["BorderSizePixel"] = 0;
 G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["2"]["Size"] = UDim2.new(0, 510, 0, 283);
@@ -1048,7 +1050,7 @@ local script = G2L["50"];
 			[1] = game:GetService("ReplicatedStorage")
 				:WaitForChild("PlacementSystem")
 				:WaitForChild("Buildings")
-				:WaitForChild("Extractors")
+				:WaitForChild("Power")
 				:WaitForChild("WindTurbine2"),
 	
 			[2] = CFrame.new(
