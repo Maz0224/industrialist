@@ -1223,163 +1223,77 @@ task.spawn(C_50);
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.CopyPaste
 local function C_61()
 local script = G2L["61"];
-	local player = game.Players.LocalPlayer
-	local UserInputService = game:GetService("UserInputService")
-	local camera = workspace.CurrentCamera
-	
-	-- UI
 	local ui = script.Parent
 	local selectBtn = ui:WaitForChild("Selection")
 	local copyBtn = ui:WaitForChild("Copy")
 	local pasteBtn = ui:WaitForChild("Paste")
 	local clearBtn = ui:WaitForChild("Clear")
 	
-	-- STATE
-	local selecting = false
-	local pos1 = nil
-	local pos2 = nil
-	local copied = {}
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local Players = game:GetService("Players")
 	
-	---------------------------------------------------
-	-- ROOT
-	---------------------------------------------------
+	local copied = {}
+	local selecting = false
+	local minPos, maxPos
+	
+	-- get character root safely
 	local function getRoot()
-		local char = player.Character or player.CharacterAdded:Wait()
+		local char = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
 		return char:WaitForChild("HumanoidRootPart")
 	end
 	
-	---------------------------------------------------
-	-- RAYCAST (mobile + pc)
-	---------------------------------------------------
-	local function getHit(screenPos)
-		local ray = camera:ScreenPointToRay(screenPos.X, screenPos.Y)
+	-- find building in ANY category
+	local function findBuildingByName(name)
+		local buildingsFolder = ReplicatedStorage
+			:WaitForChild("PlacementSystem")
+			:WaitForChild("Buildings")
 	
-		local params = RaycastParams.new()
-		params.FilterType = Enum.RaycastFilterType.Exclude
-		params.FilterDescendantsInstances = {player.Character}
-	
-		local result = workspace:Raycast(ray.Origin, ray.Direction * 500, params)
-	
-		if result then
-			return result.Instance, result.Position
+		for _, category in ipairs(buildingsFolder:GetChildren()) do
+			local found = category:FindFirstChild(name)
+			if found then
+				return found
+			end
 		end
 	
-		return nil, nil
+		return nil
 	end
 	
-	---------------------------------------------------
-	-- BOX VISUAL
-	---------------------------------------------------
-	local boxPart = Instance.new("Part")
-	boxPart.Anchored = true
-	boxPart.CanCollide = false
-	boxPart.Transparency = 0.6
-	boxPart.Material = Enum.Material.Neon
-	boxPart.Color = Color3.fromRGB(0, 170, 255)
-	boxPart.Parent = workspace
-	
-	local function updateBox()
-		if not pos1 or not pos2 then
-			boxPart.Size = Vector3.new(0,0,0)
-			return
-		end
-	
-		local min = Vector3.new(
-			math.min(pos1.X, pos2.X),
-			math.min(pos1.Y, pos2.Y),
-			math.min(pos1.Z, pos2.Z)
-		)
-	
-		local max = Vector3.new(
-			math.max(pos1.X, pos2.X),
-			math.max(pos1.Y, pos2.Y),
-			math.max(pos1.Z, pos2.Z)
-		)
-	
-		boxPart.Size = max - min
-		boxPart.Position = (min + max) / 2
-	end
-	
-	---------------------------------------------------
-	-- TOGGLE SELECT
-	---------------------------------------------------
+	-- selection toggle
 	selectBtn.MouseButton1Click:Connect(function()
 		selecting = not selecting
-		selectBtn.Text = selecting and "Select: ON" or "Select: OFF"
-	
-		pos1 = nil
-		pos2 = nil
-		boxPart.Size = Vector3.new(0,0,0)
+		copied = {}
 	end)
 	
-	---------------------------------------------------
-	-- INPUT (mobile + pc)
-	---------------------------------------------------
-	UserInputService.InputBegan:Connect(function(input, processed)
-		if processed then return end
-		if not selecting then return end
-	
-		local pos
-	
-		if input.UserInputType == Enum.UserInputType.Touch then
-			pos = input.Position
-		elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
-			pos = input.Position
-		end
-	
-		if not pos then return end
-	
-		local hitPart, hitPos = getHit(pos)
-		if not hitPart then return end
-	
-		if not pos1 then
-			pos1 = hitPos
-		else
-			pos2 = hitPos
-		end
-	
-		updateBox()
-	end)
-	
-	---------------------------------------------------
-	-- COPY BOX
-	---------------------------------------------------
+	-- COPY SYSTEM
 	copyBtn.MouseButton1Click:Connect(function()
-		if not pos1 or not pos2 then return end
-	
 		copied = {}
 	
-		local min = Vector3.new(
-			math.min(pos1.X, pos2.X),
-			math.min(pos1.Y, pos2.Y),
-			math.min(pos1.Z, pos2.Z)
-		)
+		local root = getRoot()
 	
-		local max = Vector3.new(
-			math.max(pos1.X, pos2.X),
-			math.max(pos1.Y, pos2.Y),
-			math.max(pos1.Z, pos2.Z)
-		)
+		local center = root.Position
+		local range = 50 -- adjust selection size if needed
 	
-		for _, obj in ipairs(workspace.Plots.Pipes:GetChildren()) do
-			if obj:IsA("Model") then
-				local pos = obj:GetPivot().Position
+		minPos = center - Vector3.new(range, range, range)
+		maxPos = center + Vector3.new(range, range, range)
 	
-				if pos.X >= min.X and pos.X <= max.X
-					and pos.Y >= min.Y and pos.Y <= max.Y
-					and pos.Z >= min.Z and pos.Z <= max.Z then
+		for _, plotFolder in ipairs(workspace.Plots:GetChildren()) do
+			for _, obj in ipairs(plotFolder:GetChildren()) do
+				if obj:IsA("Model") then
 	
-					local building = game:GetService("ReplicatedStorage")
-						:WaitForChild("PlacementSystem")
-						:WaitForChild("Buildings")
-						:WaitForChild("Extractors")
-						:FindFirstChild(obj.Name)
+					local pos = obj:GetPivot().Position
 	
-					if building then
-						table.insert(copied, {
-							building = building,
-							cframe = obj:GetPivot()
-						})
+					if pos.X >= minPos.X and pos.X <= maxPos.X
+						and pos.Y >= minPos.Y and pos.Y <= maxPos.Y
+						and pos.Z >= minPos.Z and pos.Z <= maxPos.Z then
+	
+						local building = findBuildingByName(obj.Name)
+	
+						if building then
+							table.insert(copied, {
+								building = building,
+								cframe = obj:GetPivot()
+							})
+						end
 					end
 				end
 			end
@@ -1388,47 +1302,27 @@ local script = G2L["61"];
 		print("Copied:", #copied)
 	end)
 	
-	---------------------------------------------------
-	-- PASTE
-	---------------------------------------------------
+	-- PASTE SYSTEM
 	pasteBtn.MouseButton1Click:Connect(function()
-		if #copied == 0 then return end
-	
 		local root = getRoot()
-		local base = copied[1].cframe.Position
 	
 		for _, data in ipairs(copied) do
-			local offset = data.cframe.Position - base
-			local rx, ry, rz = data.cframe:ToOrientation()
+			local offset = data.cframe.Position - minPos
+			local newPos = root.Position + offset
 	
 			local args = {
 				[1] = data.building,
-	
-				[2] = CFrame.new(root.Position + offset)
-					* CFrame.Angles(rx, ry, rz),
-	
+				[2] = CFrame.new(newPos) * (data.cframe - data.cframe.Position),
 				[4] = true
 			}
 	
-			game:GetService("ReplicatedStorage")
-				:WaitForChild("PlacementSystem")
-				:WaitForChild("Place")
-				:FireServer(unpack(args))
+			ReplicatedStorage.PlacementSystem.Place:FireServer(unpack(args))
 		end
 	end)
 	
-	---------------------------------------------------
 	-- CLEAR
-	---------------------------------------------------
 	clearBtn.MouseButton1Click:Connect(function()
-		selecting = false
-		pos1 = nil
-		pos2 = nil
 		copied = {}
-	
-		selectBtn.Text = "Select: OFF"
-		boxPart.Size = Vector3.new(0,0,0)
-	
 		print("Cleared")
 	end)
 end;
