@@ -12,6 +12,7 @@ local G2L = {};
 
 -- StarterGui.GriefGUI
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Enabled"] = false;
 G2L["1"]["Name"] = [[GriefGUI]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
@@ -730,7 +731,7 @@ task.spawn(C_2e);
 local function C_38()
 local script = G2L["38"];
 	script.Parent.MouseButton1Click:Connect(function()
-		game.Players.LocalPlayer.PlayerGui.VisualEffects.Radiation:Delete()
+		game.Players.LocalPlayer.PlayerGui.VisualEffects.Radiation:Destroy()
 	end)
 end;
 task.spawn(C_38);
@@ -738,7 +739,7 @@ task.spawn(C_38);
 local function C_3c()
 local script = G2L["3c"];
 	script.Parent.MouseButton1Click:Connect(function()
-		game.Players.LocalPlayer.PlayerGui.VisualEffects.Pollution:Delete()
+		game.Players.LocalPlayer.PlayerGui.VisualEffects.Pollution:Destroy()
 	end)
 end;
 task.spawn(C_3c);
