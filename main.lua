@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 87 | Scripts: 14 | Modules: 1 | Tags: 0
+-- Instances: 104 | Scripts: 15 | Modules: 1 | Tags: 0
 local G2L = {};
 
 -- StarterGui.GriefGUI
@@ -511,7 +511,7 @@ G2L["40"] = Instance.new("LocalScript", G2L["3d"]);
 G2L["41"] = Instance.new("Frame", G2L["d"]);
 G2L["41"]["BorderSizePixel"] = 0;
 G2L["41"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["41"]["Size"] = UDim2.new(0, 144, 0, 90);
+G2L["41"]["Size"] = UDim2.new(0, 140, 0, 88);
 G2L["41"]["Position"] = UDim2.new(0.68454, 0, 0.04899, 0);
 G2L["41"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["41"]["Name"] = [[Fun]];
@@ -636,52 +636,199 @@ G2L["50"] = Instance.new("LocalScript", G2L["4d"]);
 
 
 
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP
+G2L["51"] = Instance.new("Frame", G2L["d"]);
+G2L["51"]["BorderSizePixel"] = 0;
+G2L["51"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["51"]["Size"] = UDim2.new(0, 140, 0, 107);
+G2L["51"]["Position"] = UDim2.new(0.68454, 0, 0.46763, 0);
+G2L["51"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["51"]["Name"] = [[CAP]];
+G2L["51"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.UICorner
+G2L["52"] = Instance.new("UICorner", G2L["51"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.UIStroke
+G2L["53"] = Instance.new("UIStroke", G2L["51"]);
+G2L["53"]["Thickness"] = 1.5;
+G2L["53"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.UIListLayout
+G2L["54"] = Instance.new("UIListLayout", G2L["51"]);
+G2L["54"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["54"]["Padding"] = UDim.new(0, 6);
+G2L["54"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+G2L["54"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Clear
+G2L["55"] = Instance.new("TextButton", G2L["51"]);
+G2L["55"]["TextWrapped"] = true;
+G2L["55"]["BorderSizePixel"] = 0;
+G2L["55"]["TextSize"] = 9;
+G2L["55"]["TextScaled"] = true;
+G2L["55"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["55"]["BackgroundColor3"] = Color3.fromRGB(255, 131, 68);
+G2L["55"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["55"]["BackgroundTransparency"] = 0.5;
+G2L["55"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["55"]["Text"] = [[Clear]];
+G2L["55"]["Name"] = [[Clear]];
+G2L["55"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Clear.UICorner
+G2L["56"] = Instance.new("UICorner", G2L["55"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Clear.UIStroke
+G2L["57"] = Instance.new("UIStroke", G2L["55"]);
+G2L["57"]["Thickness"] = 1.5;
+G2L["57"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Selection
+G2L["58"] = Instance.new("TextButton", G2L["51"]);
+G2L["58"]["TextWrapped"] = true;
+G2L["58"]["BorderSizePixel"] = 0;
+G2L["58"]["TextSize"] = 9;
+G2L["58"]["TextScaled"] = true;
+G2L["58"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["58"]["BackgroundColor3"] = Color3.fromRGB(255, 131, 68);
+G2L["58"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["58"]["BackgroundTransparency"] = 0.5;
+G2L["58"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["58"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["58"]["Text"] = [[Selection]];
+G2L["58"]["Name"] = [[Selection]];
+G2L["58"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Selection.UICorner
+G2L["59"] = Instance.new("UICorner", G2L["58"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Selection.UIStroke
+G2L["5a"] = Instance.new("UIStroke", G2L["58"]);
+G2L["5a"]["Thickness"] = 1.5;
+G2L["5a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Copy
+G2L["5b"] = Instance.new("TextButton", G2L["51"]);
+G2L["5b"]["TextWrapped"] = true;
+G2L["5b"]["BorderSizePixel"] = 0;
+G2L["5b"]["TextSize"] = 9;
+G2L["5b"]["TextScaled"] = true;
+G2L["5b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5b"]["BackgroundColor3"] = Color3.fromRGB(255, 131, 68);
+G2L["5b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5b"]["BackgroundTransparency"] = 0.5;
+G2L["5b"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["5b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5b"]["Text"] = [[Copy]];
+G2L["5b"]["Name"] = [[Copy]];
+G2L["5b"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Copy.UICorner
+G2L["5c"] = Instance.new("UICorner", G2L["5b"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Copy.UIStroke
+G2L["5d"] = Instance.new("UIStroke", G2L["5b"]);
+G2L["5d"]["Thickness"] = 1.5;
+G2L["5d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Paste
+G2L["5e"] = Instance.new("TextButton", G2L["51"]);
+G2L["5e"]["TextWrapped"] = true;
+G2L["5e"]["BorderSizePixel"] = 0;
+G2L["5e"]["TextSize"] = 9;
+G2L["5e"]["TextScaled"] = true;
+G2L["5e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5e"]["BackgroundColor3"] = Color3.fromRGB(255, 131, 68);
+G2L["5e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5e"]["BackgroundTransparency"] = 0.5;
+G2L["5e"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["5e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5e"]["Text"] = [[Paste]];
+G2L["5e"]["Name"] = [[Paste]];
+G2L["5e"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Paste.UICorner
+G2L["5f"] = Instance.new("UICorner", G2L["5e"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.Paste.UIStroke
+G2L["60"] = Instance.new("UIStroke", G2L["5e"]);
+G2L["60"]["Thickness"] = 1.5;
+G2L["60"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.CopyPaste
+G2L["61"] = Instance.new("LocalScript", G2L["51"]);
+G2L["61"]["Name"] = [[CopyPaste]];
+
+
 -- StarterGui.GriefGUI.MainFrame.UIAspectRatioConstraint
-G2L["51"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
-G2L["51"]["AspectRatio"] = 1.81;
+G2L["62"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
+G2L["62"]["AspectRatio"] = 1.81;
 
 
 -- StarterGui.GriefGUI.Toggle
-G2L["52"] = Instance.new("TextButton", G2L["1"]);
-G2L["52"]["TextWrapped"] = true;
-G2L["52"]["BorderSizePixel"] = 0;
-G2L["52"]["TextSize"] = 18;
-G2L["52"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["52"]["BackgroundColor3"] = Color3.fromRGB(103, 255, 38);
-G2L["52"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["52"]["BackgroundTransparency"] = 0.8;
-G2L["52"]["Size"] = UDim2.new(0, 92, 0, 27);
-G2L["52"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["52"]["Text"] = [[GRIEF]];
-G2L["52"]["Name"] = [[Toggle]];
-G2L["52"]["Position"] = UDim2.new(0.46192, 0, 0.02522, 0);
+G2L["63"] = Instance.new("TextButton", G2L["1"]);
+G2L["63"]["TextWrapped"] = true;
+G2L["63"]["BorderSizePixel"] = 0;
+G2L["63"]["TextSize"] = 18;
+G2L["63"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["63"]["BackgroundColor3"] = Color3.fromRGB(103, 255, 38);
+G2L["63"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["63"]["BackgroundTransparency"] = 0.8;
+G2L["63"]["Size"] = UDim2.new(0, 92, 0, 27);
+G2L["63"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["63"]["Text"] = [[GRIEF]];
+G2L["63"]["Name"] = [[Toggle]];
+G2L["63"]["Position"] = UDim2.new(0.46192, 0, 0.02522, 0);
 
 
 -- StarterGui.GriefGUI.Toggle.Drag
-G2L["53"] = Instance.new("LocalScript", G2L["52"]);
-G2L["53"]["Name"] = [[Drag]];
+G2L["64"] = Instance.new("LocalScript", G2L["63"]);
+G2L["64"]["Name"] = [[Drag]];
 
 
 -- StarterGui.GriefGUI.Toggle.UICorner
-G2L["54"] = Instance.new("UICorner", G2L["52"]);
-G2L["54"]["CornerRadius"] = UDim.new(0.3, 0);
+G2L["65"] = Instance.new("UICorner", G2L["63"]);
+G2L["65"]["CornerRadius"] = UDim.new(0.3, 0);
 
 
 -- StarterGui.GriefGUI.Toggle.UIStroke
-G2L["55"] = Instance.new("UIStroke", G2L["52"]);
-G2L["55"]["Thickness"] = 2.8;
-G2L["55"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["66"] = Instance.new("UIStroke", G2L["63"]);
+G2L["66"]["Thickness"] = 2.8;
+G2L["66"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
 -- StarterGui.GriefGUI.Toggle.UIStroke
-G2L["56"] = Instance.new("UIStroke", G2L["52"]);
-G2L["56"]["Thickness"] = 1.1;
-G2L["56"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["67"] = Instance.new("UIStroke", G2L["63"]);
+G2L["67"]["Thickness"] = 1.1;
+G2L["67"]["Color"] = Color3.fromRGB(255, 255, 255);
 
 
 -- StarterGui.GriefGUI.dropdown
-G2L["57"] = Instance.new("ModuleScript", G2L["1"]);
-G2L["57"]["Name"] = [[dropdown]];
+G2L["68"] = Instance.new("ModuleScript", G2L["1"]);
+G2L["68"]["Name"] = [[dropdown]];
 
 
 -- Require G2L wrapper
@@ -699,9 +846,9 @@ local function require(Module:ModuleScript)
     return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[G2L["57"]] = {
+G2L_MODULES[G2L["68"]] = {
 Closure = function()
-    local script = G2L["57"];local Dropdown = {}
+    local script = G2L["68"];local Dropdown = {}
 
 function Dropdown.new(container, button, listFrame, options)
 	local self = {}
@@ -1073,9 +1220,145 @@ local script = G2L["50"];
 	end)
 end;
 task.spawn(C_50);
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.CAP.CopyPaste
+local function C_61()
+local script = G2L["61"];
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	
+	local selecting = false
+	local pos1 = nil
+	local pos2 = nil
+	local copied = {}
+	
+	-- UI
+	local ui = script.Parent
+	local selectBtn = ui:WaitForChild("Selection")
+	local copyBtn = ui:WaitForChild("Copy")
+	local pasteBtn = ui:WaitForChild("Paste")
+	local clearBtn = ui:WaitForChild("Clear")
+	
+	-- get root
+	local function getRoot()
+		local char = player.Character or player.CharacterAdded:Wait()
+		return char:WaitForChild("HumanoidRootPart")
+	end
+	
+	-- SELECT MODE
+	selectBtn.MouseButton1Click:Connect(function()
+		selecting = not selecting
+		selectBtn.Text = selecting and "Select: ON" or "Select: OFF"
+		pos1 = nil
+		pos2 = nil
+	end)
+	
+	-- TAP TO SET BOX CORNERS
+	mouse.Button1Down:Connect(function()
+		if not selecting then return end
+	
+		local hit = mouse.Hit.Position
+	
+		if not pos1 then
+			pos1 = hit
+			print("Position 1 set")
+		else
+			pos2 = hit
+			print("Position 2 set")
+		end
+	end)
+	
+	-- COPY AREA
+	copyBtn.MouseButton1Click:Connect(function()
+		if not pos1 or not pos2 then
+			warn("Select 2 points first")
+			return
+		end
+	
+		copied = {}
+	
+		local min = Vector3.new(
+			math.min(pos1.X, pos2.X),
+			math.min(pos1.Y, pos2.Y),
+			math.min(pos1.Z, pos2.Z)
+		)
+	
+		local max = Vector3.new(
+			math.max(pos1.X, pos2.X),
+			math.max(pos1.Y, pos2.Y),
+			math.max(pos1.Z, pos2.Z)
+		)
+	
+		for _, obj in ipairs(workspace.Plots.Pipes:GetChildren()) do
+			if obj:IsA("Model") then
+				local pos = obj:GetPivot().Position
+	
+				if pos.X >= min.X and pos.X <= max.X
+					and pos.Y >= min.Y and pos.Y <= max.Y
+					and pos.Z >= min.Z and pos.Z <= max.Z then
+	
+					local building = game:GetService("ReplicatedStorage")
+						:WaitForChild("PlacementSystem")
+						:WaitForChild("Buildings")
+						:WaitForChild("Extractors")
+						:FindFirstChild(obj.Name)
+	
+					if building then
+						table.insert(copied, {
+							building = building,
+							cframe = obj:GetPivot()
+						})
+					end
+				end
+			end
+		end
+	
+		print("Copied", #copied, "objects")
+	end)
+	
+	-- PASTE AREA
+	pasteBtn.MouseButton1Click:Connect(function()
+		if #copied == 0 then return end
+	
+		local root = getRoot()
+	
+		local basePos = copied[1].cframe.Position
+	
+		for _, data in ipairs(copied) do
+			local offset = data.cframe.Position - basePos
+			local rx, ry, rz = data.cframe:ToOrientation()
+	
+			local args = {
+				[1] = data.building,
+	
+				[2] = CFrame.new(
+					root.Position + offset
+				) * CFrame.Angles(rx, ry, rz),
+	
+				[4] = true
+			}
+	
+			game:GetService("ReplicatedStorage")
+				:WaitForChild("PlacementSystem")
+				:WaitForChild("Place")
+				:FireServer(unpack(args))
+		end
+	end)
+	
+	clearBtn.MouseButton1Click:Connect(function()
+		selecting = false
+		pos1 = nil
+		pos2 = nil
+		copied = {}
+	
+		selectBtn.Text = "Select: OFF"
+	
+		print("Cleared selection + copied data")
+	end)
+end;
+task.spawn(C_61);
 -- StarterGui.GriefGUI.Toggle.Drag
-local function C_53()
-local script = G2L["53"];
+local function C_64()
+local script = G2L["64"];
 	local UIS = game:GetService("UserInputService")
 	local RunService = game:GetService("RunService")
 	local TweenService = game:GetService("TweenService")
@@ -1216,6 +1499,6 @@ local script = G2L["53"];
 		end
 	end)
 end;
-task.spawn(C_53);
+task.spawn(C_64);
 
 return G2L["1"], require;
