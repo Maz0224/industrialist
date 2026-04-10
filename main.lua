@@ -5,206 +5,218 @@
 
 -- Instances:
 
-local GUI = Instance.new("ScreenGui")
+local GriefGUI = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
+local Industrialist = Instance.new("TextLabel")
+local Buttons = Instance.new("Frame")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-local IndustrialistGUI = Instance.new("TextLabel")
-local Buttons = Instance.new("Folder")
-local Valve = Instance.new("Frame")
-local Set = Instance.new("TextButton")
-local TextBox = Instance.new("TextBox")
-local Toggle = Instance.new("TextButton")
+local Buttons_2 = Instance.new("Folder")
 local Delete = Instance.new("Frame")
-local Power = Instance.new("TextButton")
-local Pipes = Instance.new("TextButton")
+local POWER = Instance.new("TextButton")
 local UIListLayout = Instance.new("UIListLayout")
-local Extractors = Instance.new("TextButton")
-local World = Instance.new("Frame")
+local PIPES = Instance.new("TextButton")
+local ALL = Instance.new("TextButton")
+local Worlds = Instance.new("Frame")
 local UIListLayout_2 = Instance.new("UIListLayout")
-local CreativeWorld = Instance.new("TextButton")
-local Toggle_2 = Instance.new("TextButton")
+local GET = Instance.new("TextButton")
+local NAME = Instance.new("TextBox")
+local Valves = Instance.new("Frame")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local BREAKVALVES = Instance.new("TextButton")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local Toggle = Instance.new("TextButton")
 
 --Properties:
 
-GUI.Name = "GUI"
-GUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+GriefGUI.Name = "GriefGUI"
+GriefGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+GriefGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
-MainFrame.Parent = GUI
-MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-MainFrame.BackgroundTransparency = 0.800
+MainFrame.Parent = GriefGUI
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.BackgroundTransparency = 0.750
 MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.0825147256, 0, 0.42677018, 0)
-MainFrame.Size = UDim2.new(0.657332599, 0, 0.374527127, 0)
+MainFrame.Position = UDim2.new(0.334202439, 0, 0.321563661, 0)
+MainFrame.Size = UDim2.new(0, 510, 0, 283)
 
-UIAspectRatioConstraint.Parent = MainFrame
-UIAspectRatioConstraint.AspectRatio = 1.830
-
-IndustrialistGUI.Name = "Industrialist | GUI"
-IndustrialistGUI.Parent = MainFrame
-IndustrialistGUI.Active = true
-IndustrialistGUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-IndustrialistGUI.BackgroundTransparency = 1.000
-IndustrialistGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-IndustrialistGUI.BorderSizePixel = 0
-IndustrialistGUI.Position = UDim2.new(0.0996308848, 0, 0.0306133032, 0)
-IndustrialistGUI.Size = UDim2.new(0, 436, 0, 26)
-IndustrialistGUI.Font = Enum.Font.Ubuntu
-IndustrialistGUI.Text = "Industrialist | GUI"
-IndustrialistGUI.TextColor3 = Color3.fromRGB(0, 0, 0)
-IndustrialistGUI.TextScaled = true
-IndustrialistGUI.TextSize = 25.000
-IndustrialistGUI.TextWrapped = true
+Industrialist.Name = "Industrialist"
+Industrialist.Parent = MainFrame
+Industrialist.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Industrialist.BackgroundTransparency = 1.000
+Industrialist.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Industrialist.BorderSizePixel = 0
+Industrialist.Position = UDim2.new(0.254449457, 0, 0.0202150401, 0)
+Industrialist.Size = UDim2.new(0, 250, 0, 27)
+Industrialist.Font = Enum.Font.Ubuntu
+Industrialist.Text = "Industrialist | GREIF V2"
+Industrialist.TextColor3 = Color3.fromRGB(81, 255, 0)
+Industrialist.TextScaled = true
+Industrialist.TextSize = 14.000
+Industrialist.TextWrapped = true
 
 Buttons.Name = "Buttons"
 Buttons.Parent = MainFrame
+Buttons.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Buttons.BackgroundTransparency = 0.500
+Buttons.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Buttons.BorderSizePixel = 0
+Buttons.Position = UDim2.new(0.0235294122, 0, 0.148409888, 0)
+Buttons.Size = UDim2.new(0, 485, 0, 232)
 
-Valve.Name = "Valve"
-Valve.Parent = Buttons
-Valve.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Valve.BackgroundTransparency = 0.750
-Valve.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Valve.BorderSizePixel = 0
-Valve.Position = UDim2.new(0.0149974516, 0, 0.713577211, 0)
-Valve.Size = UDim2.new(0, 152, 0, 67)
+UIAspectRatioConstraint.Parent = Buttons
+UIAspectRatioConstraint.AspectRatio = 2.160
 
-Set.Name = "Set"
-Set.Parent = Valve
-Set.BackgroundColor3 = Color3.fromRGB(167, 167, 167)
-Set.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Set.BorderSizePixel = 0
-Set.Position = UDim2.new(0.0826264396, 0, 0.545969486, 0)
-Set.Size = UDim2.new(0, 126, 0, 24)
-Set.Font = Enum.Font.SourceSans
-Set.Text = "Set ALL Valves"
-Set.TextColor3 = Color3.fromRGB(0, 0, 0)
-Set.TextSize = 14.000
-
-TextBox.Parent = Set
-TextBox.BackgroundColor3 = Color3.fromRGB(213, 255, 223)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0, 0, -1.25, 0)
-TextBox.Size = UDim2.new(0, 89, 0, 20)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.PlaceholderText = "Valve Bypass"
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.TextSize = 14.000
-
-Toggle.Name = "Toggle"
-Toggle.Parent = Set
-Toggle.BackgroundColor3 = Color3.fromRGB(255, 55, 20)
-Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Toggle.BorderSizePixel = 0
-Toggle.Position = UDim2.new(0.777777672, 0, -1.25, 0)
-Toggle.Size = UDim2.new(0, 28, 0, 20)
-Toggle.Font = Enum.Font.SourceSans
-Toggle.Text = ""
-Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
-Toggle.TextSize = 14.000
+Buttons_2.Name = "Buttons"
+Buttons_2.Parent = Buttons
 
 Delete.Name = "Delete"
-Delete.Parent = Buttons
+Delete.Parent = Buttons_2
 Delete.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Delete.BackgroundTransparency = 0.750
 Delete.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Delete.BorderSizePixel = 0
-Delete.Position = UDim2.new(0.0146821104, 0, 0.419816613, 0)
-Delete.Size = UDim2.new(0, 184, 0, 74)
+Delete.Position = UDim2.new(0.035051547, 0, 0.543340206, 0)
+Delete.Size = UDim2.new(0, 153, 0, 90)
 
-Power.Name = "Power"
-Power.Parent = Delete
-Power.BackgroundColor3 = Color3.fromRGB(202, 24, 24)
-Power.BackgroundTransparency = 0.500
-Power.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Power.BorderSizePixel = 0
-Power.Position = UDim2.new(0.0869565234, 0, 0.0389610492, 0)
-Power.Size = UDim2.new(0, 152, 0, 19)
-Power.Font = Enum.Font.SourceSans
-Power.Text = "Delete ALL Power"
-Power.TextColor3 = Color3.fromRGB(0, 0, 0)
-Power.TextSize = 14.000
-
-Pipes.Name = "Pipes"
-Pipes.Parent = Delete
-Pipes.BackgroundColor3 = Color3.fromRGB(202, 24, 24)
-Pipes.BackgroundTransparency = 0.500
-Pipes.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Pipes.BorderSizePixel = 0
-Pipes.Position = UDim2.new(0.0869565234, 0, 0.0389610492, 0)
-Pipes.Size = UDim2.new(0, 152, 0, 19)
-Pipes.Font = Enum.Font.SourceSans
-Pipes.Text = "Delete ALL Pipes"
-Pipes.TextColor3 = Color3.fromRGB(0, 0, 0)
-Pipes.TextSize = 14.000
+POWER.Name = "POWER"
+POWER.Parent = Delete
+POWER.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
+POWER.BackgroundTransparency = 0.750
+POWER.BorderColor3 = Color3.fromRGB(0, 0, 0)
+POWER.BorderSizePixel = 0
+POWER.Position = UDim2.new(0.0751634017, 0, 0.382352948, 0)
+POWER.Size = UDim2.new(0, 130, 0, 18)
+POWER.Font = Enum.Font.SourceSans
+POWER.Text = "Delete ALL Power"
+POWER.TextColor3 = Color3.fromRGB(0, 0, 0)
+POWER.TextSize = 14.000
 
 UIListLayout.Parent = Delete
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-UIListLayout.Padding = UDim.new(0, 5)
+UIListLayout.Padding = UDim.new(0, 6)
 
-Extractors.Name = "Extractors"
-Extractors.Parent = Delete
-Extractors.BackgroundColor3 = Color3.fromRGB(202, 24, 24)
-Extractors.BackgroundTransparency = 0.500
-Extractors.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Extractors.BorderSizePixel = 0
-Extractors.Position = UDim2.new(0.0869565234, 0, 0.0389610492, 0)
-Extractors.Size = UDim2.new(0, 152, 0, 19)
-Extractors.Font = Enum.Font.SourceSans
-Extractors.Text = "Delete ALL Extractors"
-Extractors.TextColor3 = Color3.fromRGB(0, 0, 0)
-Extractors.TextSize = 14.000
+PIPES.Name = "PIPES"
+PIPES.Parent = Delete
+PIPES.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
+PIPES.BackgroundTransparency = 0.750
+PIPES.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PIPES.BorderSizePixel = 0
+PIPES.Position = UDim2.new(0.0751634017, 0, 0.382352948, 0)
+PIPES.Size = UDim2.new(0, 130, 0, 18)
+PIPES.Font = Enum.Font.SourceSans
+PIPES.Text = "Delete ALL Pipes"
+PIPES.TextColor3 = Color3.fromRGB(0, 0, 0)
+PIPES.TextSize = 14.000
 
-World.Name = "World"
-World.Parent = Buttons
-World.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-World.BackgroundTransparency = 0.750
-World.BorderColor3 = Color3.fromRGB(0, 0, 0)
-World.BorderSizePixel = 0
-World.Position = UDim2.new(0.0146821104, 0, 0.225021705, 0)
-World.Size = UDim2.new(0, 184, 0, 43)
+ALL.Name = "ALL"
+ALL.Parent = Delete
+ALL.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
+ALL.BackgroundTransparency = 0.750
+ALL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ALL.BorderSizePixel = 0
+ALL.Position = UDim2.new(0.0751634017, 0, 0.382352948, 0)
+ALL.Size = UDim2.new(0, 130, 0, 18)
+ALL.Font = Enum.Font.SourceSans
+ALL.Text = "Delete ALL"
+ALL.TextColor3 = Color3.fromRGB(0, 0, 0)
+ALL.TextSize = 14.000
 
-UIListLayout_2.Parent = World
+Worlds.Name = "Worlds"
+Worlds.Parent = Buttons_2
+Worlds.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Worlds.BackgroundTransparency = 0.750
+Worlds.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Worlds.BorderSizePixel = 0
+Worlds.Position = UDim2.new(0.035051547, 0, 0.0489896908, 0)
+Worlds.Size = UDim2.new(0, 153, 0, 54)
+
+UIListLayout_2.Parent = Worlds
 UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
-UIListLayout_2.Padding = UDim.new(0, 5)
+UIListLayout_2.Padding = UDim.new(0, 6)
 
-CreativeWorld.Name = "Creative World"
-CreativeWorld.Parent = World
-CreativeWorld.BackgroundColor3 = Color3.fromRGB(22, 247, 240)
-CreativeWorld.BackgroundTransparency = 0.500
-CreativeWorld.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CreativeWorld.BorderSizePixel = 0
-CreativeWorld.Position = UDim2.new(0.0869565234, 0, 0.0389610492, 0)
-CreativeWorld.Size = UDim2.new(0, 152, 0, 19)
-CreativeWorld.Font = Enum.Font.SourceSans
-CreativeWorld.Text = "Creative World"
-CreativeWorld.TextColor3 = Color3.fromRGB(0, 0, 0)
-CreativeWorld.TextSize = 14.000
+GET.Name = "GET"
+GET.Parent = Worlds
+GET.BackgroundColor3 = Color3.fromRGB(71, 255, 240)
+GET.BackgroundTransparency = 0.750
+GET.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GET.BorderSizePixel = 0
+GET.Position = UDim2.new(0.0751634017, 0, 0.382352948, 0)
+GET.Size = UDim2.new(0, 130, 0, 18)
+GET.Font = Enum.Font.SourceSans
+GET.Text = "Sandbox + World"
+GET.TextColor3 = Color3.fromRGB(0, 0, 0)
+GET.TextSize = 14.000
 
-Toggle_2.Name = "Toggle"
-Toggle_2.Parent = GUI
-Toggle_2.BackgroundColor3 = Color3.fromRGB(20, 135, 0)
-Toggle_2.BackgroundTransparency = 0.700
-Toggle_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Toggle_2.BorderSizePixel = 0
-Toggle_2.Position = UDim2.new(0.467583537, 0, 0.0411160067, 0)
-Toggle_2.Size = UDim2.new(0, 99, 0, 30)
-Toggle_2.Font = Enum.Font.SourceSans
-Toggle_2.Text = "Industrialist | GUI"
-Toggle_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Toggle_2.TextSize = 14.000
+NAME.Name = "NAME"
+NAME.Parent = Worlds
+NAME.BackgroundColor3 = Color3.fromRGB(71, 255, 240)
+NAME.BackgroundTransparency = 0.750
+NAME.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NAME.BorderSizePixel = 0
+NAME.Position = UDim2.new(-0.153594777, 0, 0.870370388, 0)
+NAME.Size = UDim2.new(0, 133, 0, 17)
+NAME.Font = Enum.Font.SourceSans
+NAME.PlaceholderColor3 = Color3.fromRGB(76, 76, 76)
+NAME.PlaceholderText = "World Name"
+NAME.Text = ""
+NAME.TextColor3 = Color3.fromRGB(0, 0, 0)
+NAME.TextSize = 14.000
+
+Valves.Name = "Valves"
+Valves.Parent = Buttons_2
+Valves.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Valves.BackgroundTransparency = 0.750
+Valves.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Valves.BorderSizePixel = 0
+Valves.Position = UDim2.new(0.379381448, 0, 0.650226831, 0)
+Valves.Size = UDim2.new(0, 153, 0, 66)
+
+UIListLayout_3.Parent = Valves
+UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_3.Padding = UDim.new(0, 6)
+
+BREAKVALVES.Name = "BREAK VALVES"
+BREAKVALVES.Parent = Valves
+BREAKVALVES.BackgroundColor3 = Color3.fromRGB(227, 255, 48)
+BREAKVALVES.BackgroundTransparency = 0.750
+BREAKVALVES.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BREAKVALVES.BorderSizePixel = 0
+BREAKVALVES.Position = UDim2.new(0.0751634017, 0, 0.382352948, 0)
+BREAKVALVES.Size = UDim2.new(0, 130, 0, 18)
+BREAKVALVES.Font = Enum.Font.SourceSans
+BREAKVALVES.Text = "Break ALL Valves"
+BREAKVALVES.TextColor3 = Color3.fromRGB(0, 0, 0)
+BREAKVALVES.TextSize = 14.000
+
+UIAspectRatioConstraint_2.Parent = MainFrame
+UIAspectRatioConstraint_2.AspectRatio = 1.810
+
+Toggle.Name = "Toggle"
+Toggle.Parent = GriefGUI
+Toggle.BackgroundColor3 = Color3.fromRGB(102, 255, 37)
+Toggle.BackgroundTransparency = 0.800
+Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BorderSizePixel = 0
+Toggle.Position = UDim2.new(0.46192053, 0, 0.025220681, 0)
+Toggle.Size = UDim2.new(0, 92, 0, 27)
+Toggle.Font = Enum.Font.Ubuntu
+Toggle.Text = "GRIEF"
+Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.TextSize = 18.000
+Toggle.TextWrapped = true
 
 -- Scripts:
 
-local function JRDZWN_fake_script() -- IndustrialistGUI.LocalScript 
-	local script = Instance.new('LocalScript', IndustrialistGUI)
+local function KQJSEYL_fake_script() -- Industrialist.Drag 
+	local script = Instance.new('LocalScript', Industrialist)
 
 	local UIS = game:GetService("UserInputService")
 	local RunService = game:GetService("RunService")
@@ -262,96 +274,116 @@ local function JRDZWN_fake_script() -- IndustrialistGUI.LocalScript
 		frame.Position = frame.Position:Lerp(targetPos, 0.2)
 	end)
 end
-coroutine.wrap(JRDZWN_fake_script)()
-local function SEGV_fake_script() -- Toggle.LocalScript 
-	local script = Instance.new('LocalScript', Toggle)
+coroutine.wrap(KQJSEYL_fake_script)()
+local function ZZMBQ_fake_script() -- POWER.delete 
+	local script = Instance.new('LocalScript', POWER)
 
-	local bypassing = false
-	script.Parent.Activated:Connect(function()
-		bypassing = not bypassing
-		if bypassing == false then
-			script.Parent.BackgroundColor = BrickColor.new(Color3.new(1, 0, 0))
-		else
-			script.Parent.BackgroundColor = BrickColor.new(Color3.new(0, 1, 0))
+	script.Parent.MouseButton1Click:Connect(function()
+	
+		local children = workspace.Plots.Power:GetChildren()
+	
+		for i, v in ipairs(children) do
+			local args = {
+				[1] = i
+			}
+	
+			game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+	
 		end
 	end)
 end
-coroutine.wrap(SEGV_fake_script)()
-local function LCCCO_fake_script() -- Valve.LocalScript 
-	local script = Instance.new('LocalScript', Valve)
+coroutine.wrap(ZZMBQ_fake_script)()
+local function LOHLCCY_fake_script() -- PIPES.delete 
+	local script = Instance.new('LocalScript', PIPES)
 
-	local setButton = script.Parent.Set
-	local bypassLevel = setButton.TextBox
-	local toggleOverflow = setButton.Toggle
+	script.Parent.MouseButton1Click:Connect(function()
 	
+		local plots = workspace:WaitForChild("Plots"):GetChildren()
 	
-	setButton.MouseButton1Click:Connect(function()
-		for i = 1, 50000 do
-			local args = {
-				[1] = {
-					[1] = {
-						[1] = workspace.Plots.Pipes:FindFirstChild(i).ModelData.Valve,
-						[2] = bypassLevel
-					},
-					[2] = {
-						[1] = workspace.Plots.Pipes:FindFirstChild(i).ModelData.Overflow,
-						[2] = toggleOverflow
-					}
-				},
-				[2] = 1775777563.9519386 -- unknown
-			}
+		for _, plot in ipairs(plots) do
+			for _, child in ipairs(plot:GetChildren()) do
 	
+				game:GetService("ReplicatedStorage")
+					:WaitForChild("PlacementSystem")
+					:WaitForChild("Delete")
+					:FireServer(child)
 	
-			game:GetService("ReplicatedStorage").SharedMachineSettingsRelay:FireServer(unpack(args))
+			end
 		end
+	end)
+end
+coroutine.wrap(LOHLCCY_fake_script)()
+local function GRXFDKA_fake_script() -- ALL.delete 
+	local script = Instance.new('LocalScript', ALL)
+
+	script.Parent.MouseButton1Click:Connect(function()
 		
-	end)
-end
-coroutine.wrap(LCCCO_fake_script)()
-local function VQURH_fake_script() -- Power.LocalScript 
-	local script = Instance.new('LocalScript', Power)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		for i = 1, 50000 do
+		local children = workspace.Plots.Pipes:GetChildren()
+		
+		for i, v in ipairs(children) do
 			local args = {
-				[1] = workspace.Plots.Power:FindFirstChild(i)
+				[1] = i
 			}
 	
 			game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+			
 		end
 	end)
 end
-coroutine.wrap(VQURH_fake_script)()
-local function ZVKHIWF_fake_script() -- Pipes.LocalScript 
-	local script = Instance.new('LocalScript', Pipes)
+coroutine.wrap(GRXFDKA_fake_script)()
+local function FENZ_fake_script() -- GET.create 
+	local script = Instance.new('LocalScript', GET)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		for i = 1, 50000 do
-			local args = {
-				[1] = workspace.Plots.Pipes:FindFirstChild(i)
+		
+		local name = script.Parent.Parent.NAME.Text
+		
+		local args = {
+			[1] = name,
+			[2] = {
+				["difficulty"] = 0,
+				["oreNodes"] = false
 			}
-			
-			game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
-		end
+		}
+	
+		game:GetService("ReplicatedStorage").Events.CreateWorld:InvokeServer(unpack(args))
 	end)
 end
-coroutine.wrap(ZVKHIWF_fake_script)()
-local function KKBDJ_fake_script() -- Extractors.LocalScript 
-	local script = Instance.new('LocalScript', Extractors)
+coroutine.wrap(FENZ_fake_script)()
+local function NHCOK_fake_script() -- BREAKVALVES.valve 
+	local script = Instance.new('LocalScript', BREAKVALVES)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		for i = 1, 50000 do
-			local args = {
-				[1] = workspace.Plots.Extractors:FindFirstChild(i)
-			}
-			
-			game:GetService("ReplicatedStorage").PlacementSystem.Delete:FireServer(unpack(args))
+	
+		for _, pipe in ipairs(workspace.Plots.Pipes:GetChildren()) do
+	
+			local modelData = pipe:FindFirstChild("ModelData")
+			if not modelData then continue end
+	
+			local valve = modelData:FindFirstChild("Valve")
+			local overflow = modelData:FindFirstChild("Overflow")
+	
+			if valve and overflow then
+	
+				local args = {
+					{
+						{ valve, 0 },
+						{ overflow, false }
+					},
+					os.clock()
+				}
+	
+				game:GetService("ReplicatedStorage")
+					:WaitForChild("SharedMachineSettingsRelay")
+					:FireServer(unpack(args))
+	
+			end
 		end
 	end)
 end
-coroutine.wrap(KKBDJ_fake_script)()
-local function TDYFJ_fake_script() -- Toggle_2.LocalScript 
-	local script = Instance.new('LocalScript', Toggle_2)
+coroutine.wrap(NHCOK_fake_script)()
+local function ZXLC_fake_script() -- Toggle.Drag 
+	local script = Instance.new('LocalScript', Toggle)
 
 	local UIS = game:GetService("UserInputService")
 	local RunService = game:GetService("RunService")
@@ -493,5 +525,4 @@ local function TDYFJ_fake_script() -- Toggle_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(TDYFJ_fake_script)()
-
+coroutine.wrap(ZXLC_fake_script)()
