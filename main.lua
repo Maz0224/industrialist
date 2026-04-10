@@ -1224,12 +1224,8 @@ task.spawn(C_50);
 local function C_61()
 local script = G2L["61"];
 	local player = game.Players.LocalPlayer
-	local mouse = player:GetMouse()
-	
-	local selecting = false
-	local pos1 = nil
-	local pos2 = nil
-	local copied = {}
+	local UserInputService = game:GetService("UserInputService")
+	local camera = workspace.CurrentCamera
 	
 	-- UI
 	local ui = script.Parent
@@ -1238,39 +1234,89 @@ local script = G2L["61"];
 	local pasteBtn = ui:WaitForChild("Paste")
 	local clearBtn = ui:WaitForChild("Clear")
 	
-	-- get root
+	-- STATE
+	local selecting = false
+	local pos1 = nil
+	local pos2 = nil
+	local copied = {}
+	local selected = nil
+	
+	-- CHARACTER ROOT
 	local function getRoot()
 		local char = player.Character or player.CharacterAdded:Wait()
 		return char:WaitForChild("HumanoidRootPart")
 	end
 	
-	-- SELECT MODE
+	---------------------------------------------------
+	-- RAYCAST (mobile + PC fix)
+	---------------------------------------------------
+	local function getHit(screenPos)
+		local ray = camera:ScreenPointToRay(screenPos.X, screenPos.Y)
+	
+		local params = RaycastParams.new()
+		params.FilterType = Enum.RaycastFilterType.Exclude
+		params.FilterDescendantsInstances = {player.Character}
+	
+		local result = workspace:Raycast(ray.Origin, ray.Direction * 500, params)
+	
+		if result then
+			return result.Instance, result.Position
+		end
+	
+		return nil, nil
+	end
+	
+	---------------------------------------------------
+	-- SELECT TOGGLE
+	---------------------------------------------------
 	selectBtn.MouseButton1Click:Connect(function()
 		selecting = not selecting
 		selectBtn.Text = selecting and "Select: ON" or "Select: OFF"
+	
 		pos1 = nil
 		pos2 = nil
 	end)
 	
-	-- TAP TO SET BOX CORNERS
-	mouse.Button1Down:Connect(function()
+	---------------------------------------------------
+	-- MOBILE + PC SELECT FIX
+	---------------------------------------------------
+	UserInputService.InputBegan:Connect(function(input, processed)
+		if processed then return end
 		if not selecting then return end
 	
-		local hit = mouse.Hit.Position
+		local pos
 	
+		if input.UserInputType == Enum.UserInputType.Touch then
+			pos = input.Position
+		elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+			pos = input.Position
+		end
+	
+		if not pos then return end
+	
+		local hitPart = getHit(pos)
+		if not hitPart then return end
+	
+		local model = hitPart:FindFirstAncestorOfClass("Model")
+		if model then
+			selected = model
+			print("Selected:", model.Name)
+		end
+	
+		-- BOX POINTS (tap sets corners)
 		if not pos1 then
-			pos1 = hit
-			print("Position 1 set")
+			pos1 = getHit(pos)
 		else
-			pos2 = hit
-			print("Position 2 set")
+			pos2 = getHit(pos)
 		end
 	end)
 	
-	-- COPY AREA
+	---------------------------------------------------
+	-- COPY BOX
+	---------------------------------------------------
 	copyBtn.MouseButton1Click:Connect(function()
 		if not pos1 or not pos2 then
-			warn("Select 2 points first")
+			warn("Need 2 points")
 			return
 		end
 	
@@ -1312,27 +1358,27 @@ local script = G2L["61"];
 			end
 		end
 	
-		print("Copied", #copied, "objects")
+		print("Copied:", #copied)
 	end)
 	
-	-- PASTE AREA
+	---------------------------------------------------
+	-- PASTE BOX
+	---------------------------------------------------
 	pasteBtn.MouseButton1Click:Connect(function()
 		if #copied == 0 then return end
 	
 		local root = getRoot()
-	
-		local basePos = copied[1].cframe.Position
+		local base = copied[1].cframe.Position
 	
 		for _, data in ipairs(copied) do
-			local offset = data.cframe.Position - basePos
+			local offset = data.cframe.Position - base
 			local rx, ry, rz = data.cframe:ToOrientation()
 	
 			local args = {
 				[1] = data.building,
 	
-				[2] = CFrame.new(
-					root.Position + offset
-				) * CFrame.Angles(rx, ry, rz),
+				[2] = CFrame.new(root.Position + offset)
+					* CFrame.Angles(rx, ry, rz),
 	
 				[4] = true
 			}
@@ -1344,15 +1390,19 @@ local script = G2L["61"];
 		end
 	end)
 	
+	---------------------------------------------------
+	-- CLEAR
+	---------------------------------------------------
 	clearBtn.MouseButton1Click:Connect(function()
 		selecting = false
 		pos1 = nil
 		pos2 = nil
 		copied = {}
+		selected = nil
 	
 		selectBtn.Text = "Select: OFF"
 	
-		print("Cleared selection + copied data")
+		print("Cleared")
 	end)
 end;
 task.spawn(C_61);
