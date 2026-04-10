@@ -1,3 +1,13 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 70 | Scripts: 11 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.GriefGUI
@@ -168,20 +178,20 @@ G2L["16"]["Name"] = [[PIPES]];
 G2L["16"]["Position"] = UDim2.new(0.07516, 0, 0.38235, 0);
 
 
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.PIPES.delete
+G2L["17"] = Instance.new("LocalScript", G2L["16"]);
+G2L["17"]["Name"] = [[delete]];
+
+
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.PIPES.UICorner
-G2L["17"] = Instance.new("UICorner", G2L["16"]);
+G2L["18"] = Instance.new("UICorner", G2L["16"]);
 
 
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.PIPES.UIStroke
-G2L["18"] = Instance.new("UIStroke", G2L["16"]);
-G2L["18"]["Thickness"] = 1.5;
-G2L["18"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
-
--- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.PIPES.delete
-G2L["19"] = Instance.new("LocalScript", G2L["16"]);
-G2L["19"]["Name"] = [[delete]];
+G2L["19"] = Instance.new("UIStroke", G2L["16"]);
+G2L["19"]["Thickness"] = 1.5;
+G2L["19"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL
@@ -199,27 +209,27 @@ G2L["1a"]["Name"] = [[ALL]];
 G2L["1a"]["Position"] = UDim2.new(0.07516, 0, 0.38235, 0);
 
 
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL.delete
+G2L["1b"] = Instance.new("LocalScript", G2L["1a"]);
+G2L["1b"]["Name"] = [[delete]];
+
+
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL.UICorner
-G2L["1b"] = Instance.new("UICorner", G2L["1a"]);
+G2L["1c"] = Instance.new("UICorner", G2L["1a"]);
 
 
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL.UIStroke
-G2L["1c"] = Instance.new("UIStroke", G2L["1a"]);
-G2L["1c"]["Thickness"] = 1.5;
-G2L["1c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
-
--- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL.delete
-G2L["1d"] = Instance.new("LocalScript", G2L["1a"]);
-G2L["1d"]["Name"] = [[delete]];
+G2L["1d"] = Instance.new("UIStroke", G2L["1a"]);
+G2L["1d"]["Thickness"] = 1.5;
+G2L["1d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Worlds
 G2L["1e"] = Instance.new("Frame", G2L["d"]);
 G2L["1e"]["BorderSizePixel"] = 0;
 G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e"]["Size"] = UDim2.new(0, 153, 0, 54);
+G2L["1e"]["Size"] = UDim2.new(0, 153, 0, 101);
 G2L["1e"]["Position"] = UDim2.new(0.03505, 0, 0.04899, 0);
 G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["1e"]["Name"] = [[Worlds]];
@@ -278,6 +288,7 @@ G2L["25"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Worlds.NAME
 G2L["26"] = Instance.new("TextBox", G2L["1e"]);
+G2L["26"]["CursorPosition"] = -1;
 G2L["26"]["Name"] = [[NAME]];
 G2L["26"]["PlaceholderColor3"] = Color3.fromRGB(77, 77, 77);
 G2L["26"]["BorderSizePixel"] = 0;
@@ -308,8 +319,8 @@ G2L["28"] = Instance.new("UICorner", G2L["26"]);
 G2L["29"] = Instance.new("Frame", G2L["d"]);
 G2L["29"]["BorderSizePixel"] = 0;
 G2L["29"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["29"]["Size"] = UDim2.new(0, 153, 0, 66);
-G2L["29"]["Position"] = UDim2.new(0.37938, 0, 0.65023, 0);
+G2L["29"]["Size"] = UDim2.new(0, 134, 0, 36);
+G2L["29"]["Position"] = UDim2.new(0.37938, 0, 0.78384, 0);
 G2L["29"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["29"]["Name"] = [[Valves]];
 G2L["29"]["BackgroundTransparency"] = 0.75;
@@ -342,11 +353,11 @@ G2L["2d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["2d"]["BackgroundColor3"] = Color3.fromRGB(228, 255, 49);
 G2L["2d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["2d"]["BackgroundTransparency"] = 0.75;
-G2L["2d"]["Size"] = UDim2.new(0, 130, 0, 18);
+G2L["2d"]["Size"] = UDim2.new(0, 118, 0, 21);
 G2L["2d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["2d"]["Text"] = [[Break ALL Valves]];
 G2L["2d"]["Name"] = [[BREAK VALVES]];
-G2L["2d"]["Position"] = UDim2.new(0.07516, 0, 0.38235, 0);
+G2L["2d"]["Position"] = UDim2.new(0.01493, 0, 0.25, 0);
 
 
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Valves.BREAK VALVES.valve
@@ -365,47 +376,176 @@ G2L["30"]["Thickness"] = 1.5;
 G2L["30"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client
+G2L["31"] = Instance.new("Frame", G2L["d"]);
+G2L["31"]["BorderSizePixel"] = 0;
+G2L["31"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["31"]["Size"] = UDim2.new(0, 131, 0, 156);
+G2L["31"]["Position"] = UDim2.new(0.38557, 0, 0.04899, 0);
+G2L["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["31"]["Name"] = [[Client]];
+G2L["31"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.UICorner
+G2L["32"] = Instance.new("UICorner", G2L["31"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.UIStroke
+G2L["33"] = Instance.new("UIStroke", G2L["31"]);
+G2L["33"]["Thickness"] = 1.5;
+G2L["33"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.UIListLayout
+G2L["34"] = Instance.new("UIListLayout", G2L["31"]);
+G2L["34"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["34"]["Padding"] = UDim.new(0, 6);
+G2L["34"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+G2L["34"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Radi
+G2L["35"] = Instance.new("TextButton", G2L["31"]);
+G2L["35"]["TextWrapped"] = true;
+G2L["35"]["BorderSizePixel"] = 0;
+G2L["35"]["TextSize"] = 9;
+G2L["35"]["TextScaled"] = true;
+G2L["35"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["35"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["35"]["BackgroundTransparency"] = 0.5;
+G2L["35"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["35"]["Text"] = [[Remove Radiation]];
+G2L["35"]["Name"] = [[Radi]];
+G2L["35"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Radi.UICorner
+G2L["36"] = Instance.new("UICorner", G2L["35"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Radi.UIStroke
+G2L["37"] = Instance.new("UIStroke", G2L["35"]);
+G2L["37"]["Thickness"] = 1.5;
+G2L["37"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Radi.LocalScript
+G2L["38"] = Instance.new("LocalScript", G2L["35"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Poll
+G2L["39"] = Instance.new("TextButton", G2L["31"]);
+G2L["39"]["TextWrapped"] = true;
+G2L["39"]["BorderSizePixel"] = 0;
+G2L["39"]["TextSize"] = 9;
+G2L["39"]["TextScaled"] = true;
+G2L["39"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["39"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["39"]["BackgroundTransparency"] = 0.5;
+G2L["39"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["39"]["Text"] = [[Remove Pollution]];
+G2L["39"]["Name"] = [[Poll]];
+G2L["39"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Poll.UICorner
+G2L["3a"] = Instance.new("UICorner", G2L["39"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Poll.UIStroke
+G2L["3b"] = Instance.new("UIStroke", G2L["39"]);
+G2L["3b"]["Thickness"] = 1.5;
+G2L["3b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Poll.LocalScript
+G2L["3c"] = Instance.new("LocalScript", G2L["39"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Effects
+G2L["3d"] = Instance.new("TextButton", G2L["31"]);
+G2L["3d"]["TextWrapped"] = true;
+G2L["3d"]["BorderSizePixel"] = 0;
+G2L["3d"]["TextSize"] = 9;
+G2L["3d"]["TextScaled"] = true;
+G2L["3d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3d"]["BackgroundColor3"] = Color3.fromRGB(44, 255, 21);
+G2L["3d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["3d"]["BackgroundTransparency"] = 0.5;
+G2L["3d"]["Size"] = UDim2.new(0, 104, 0, 20);
+G2L["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3d"]["Text"] = [[Visual Effects]];
+G2L["3d"]["Name"] = [[Effects]];
+G2L["3d"]["Position"] = UDim2.new(0.06107, 0, 0.45025, 0);
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Effects.UICorner
+G2L["3e"] = Instance.new("UICorner", G2L["3d"]);
+
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Effects.UIStroke
+G2L["3f"] = Instance.new("UIStroke", G2L["3d"]);
+G2L["3f"]["Thickness"] = 1.5;
+G2L["3f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Effects.LocalScript
+G2L["40"] = Instance.new("LocalScript", G2L["3d"]);
+
+
+
 -- StarterGui.GriefGUI.MainFrame.UIAspectRatioConstraint
-G2L["31"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
-G2L["31"]["AspectRatio"] = 1.81;
+G2L["41"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
+G2L["41"]["AspectRatio"] = 1.81;
 
 
 -- StarterGui.GriefGUI.Toggle
-G2L["32"] = Instance.new("TextButton", G2L["1"]);
-G2L["32"]["TextWrapped"] = true;
-G2L["32"]["BorderSizePixel"] = 0;
-G2L["32"]["TextSize"] = 18;
-G2L["32"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["32"]["BackgroundColor3"] = Color3.fromRGB(103, 255, 38);
-G2L["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["32"]["BackgroundTransparency"] = 0.8;
-G2L["32"]["Size"] = UDim2.new(0, 92, 0, 27);
-G2L["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["32"]["Text"] = [[GRIEF]];
-G2L["32"]["Name"] = [[Toggle]];
-G2L["32"]["Position"] = UDim2.new(0.46192, 0, 0.02522, 0);
+G2L["42"] = Instance.new("TextButton", G2L["1"]);
+G2L["42"]["TextWrapped"] = true;
+G2L["42"]["BorderSizePixel"] = 0;
+G2L["42"]["TextSize"] = 18;
+G2L["42"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["42"]["BackgroundColor3"] = Color3.fromRGB(103, 255, 38);
+G2L["42"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["42"]["BackgroundTransparency"] = 0.8;
+G2L["42"]["Size"] = UDim2.new(0, 92, 0, 27);
+G2L["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["42"]["Text"] = [[GRIEF]];
+G2L["42"]["Name"] = [[Toggle]];
+G2L["42"]["Position"] = UDim2.new(0.46192, 0, 0.02522, 0);
 
 
 -- StarterGui.GriefGUI.Toggle.Drag
-G2L["33"] = Instance.new("LocalScript", G2L["32"]);
-G2L["33"]["Name"] = [[Drag]];
+G2L["43"] = Instance.new("LocalScript", G2L["42"]);
+G2L["43"]["Name"] = [[Drag]];
 
 
 -- StarterGui.GriefGUI.Toggle.UICorner
-G2L["34"] = Instance.new("UICorner", G2L["32"]);
-G2L["34"]["CornerRadius"] = UDim.new(0.3, 0);
+G2L["44"] = Instance.new("UICorner", G2L["42"]);
+G2L["44"]["CornerRadius"] = UDim.new(0.3, 0);
 
 
 -- StarterGui.GriefGUI.Toggle.UIStroke
-G2L["35"] = Instance.new("UIStroke", G2L["32"]);
-G2L["35"]["Thickness"] = 2.8;
-G2L["35"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["45"] = Instance.new("UIStroke", G2L["42"]);
+G2L["45"]["Thickness"] = 2.8;
+G2L["45"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
 -- StarterGui.GriefGUI.Toggle.UIStroke
-G2L["36"] = Instance.new("UIStroke", G2L["32"]);
-G2L["36"]["Thickness"] = 1.1;
-G2L["36"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["46"] = Instance.new("UIStroke", G2L["42"]);
+G2L["46"]["Thickness"] = 1.1;
+G2L["46"]["Color"] = Color3.fromRGB(255, 255, 255);
 
 
 -- StarterGui.GriefGUI.MainFrame.UIStroke.Rotate
@@ -498,8 +638,8 @@ local script = G2L["12"];
 end;
 task.spawn(C_12);
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.PIPES.delete
-local function C_19()
-local script = G2L["19"];
+local function C_17()
+local script = G2L["17"];
 	script.Parent.MouseButton1Click:Connect(function()
 		
 		local children = workspace.Plots.Pipes:GetChildren()
@@ -514,10 +654,10 @@ local script = G2L["19"];
 		end
 	end)
 end;
-task.spawn(C_19);
+task.spawn(C_17);
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Delete.ALL.delete
-local function C_1d()
-local script = G2L["1d"];
+local function C_1b()
+local script = G2L["1b"];
 	script.Parent.MouseButton1Click:Connect(function()
 	
 		local plots = workspace:WaitForChild("Plots"):GetChildren()
@@ -534,7 +674,7 @@ local script = G2L["1d"];
 		end
 	end)
 end;
-task.spawn(C_1d);
+task.spawn(C_1b);
 -- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Worlds.GET.create
 local function C_23()
 local script = G2L["23"];
@@ -586,9 +726,44 @@ local script = G2L["2e"];
 	end)
 end;
 task.spawn(C_2e);
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Radi.LocalScript
+local function C_38()
+local script = G2L["38"];
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.VisualEffects.Radiation:Delete()
+	end)
+end;
+task.spawn(C_38);
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Poll.LocalScript
+local function C_3c()
+local script = G2L["3c"];
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.VisualEffects.Pollution:Delete()
+	end)
+end;
+task.spawn(C_3c);
+-- StarterGui.GriefGUI.MainFrame.Buttons.Buttons.Client.Effects.LocalScript
+local function C_40()
+local script = G2L["40"];
+	local toggle = true
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		toggle = not toggle
+		if toggle == true then
+			script.Parent.BackgroundColor = BrickColor.new(Color3.new(0.117647, 1, 0.054902))
+			game.Players.LocalPlayer.PlayerGui.VisualEffects.Enabled = toggle
+	
+		else
+			script.Parent.BackgroundColor = BrickColor.new(Color3.new(255, 0, 0))
+			game.Players.LocalPlayer.PlayerGui.VisualEffects.Enabled = toggle
+	
+		end
+	end)
+end;
+task.spawn(C_40);
 -- StarterGui.GriefGUI.Toggle.Drag
-local function C_33()
-local script = G2L["33"];
+local function C_43()
+local script = G2L["43"];
 	local UIS = game:GetService("UserInputService")
 	local RunService = game:GetService("RunService")
 	local TweenService = game:GetService("TweenService")
@@ -729,6 +904,6 @@ local script = G2L["33"];
 		end
 	end)
 end;
-task.spawn(C_33);
+task.spawn(C_43);
 
 return G2L["1"], require;
